@@ -35,7 +35,7 @@ public class FileScheduler {
 
     private List<String> filesDone = new ArrayList<>();
 
-    @Scheduled(initialDelayString = "${app.job.interval}", fixedRateString = "${app.job.interval}")
+    @Scheduled(initialDelayString = "${app.job.interval}", fixedRateString = "#{${app.job.interval} * 1000}")
     public void executaJob() {
         try {
             Path inPath = Paths.get(inDirectory);
